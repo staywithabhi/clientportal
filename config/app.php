@@ -164,7 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
-	Laravel\Dusk\DuskServiceProvider::class,
+    Laravel\Dusk\DuskServiceProvider::class,
+    Intervention\Image\ImageServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -226,7 +227,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-	'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+    'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
+    'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

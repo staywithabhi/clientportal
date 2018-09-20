@@ -21041,7 +21041,7 @@ table.text-center th {
 .register-logo {
   font-size: 35px;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 2px;
   font-weight: 300;
 }
 .login-logo a,
@@ -21054,8 +21054,10 @@ table.text-center th {
 }
 .login-box,
 .register-box {
-  width: 360px;
+  width: 380px;
   margin: 7% auto;
+  background: #fff;
+  padding: 10px 5px 5px 0;
 }
 @media (max-width: 768px) {
   .login-box,
