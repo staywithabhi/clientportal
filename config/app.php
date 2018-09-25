@@ -166,6 +166,8 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
     Laravel\Dusk\DuskServiceProvider::class,
     Intervention\Image\ImageServiceProvider::class,
+    Yajra\DataTables\DataTablesServiceProvider::class,
+    Yajra\DataTables\HtmlServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -229,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
     'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
     'Image' => Intervention\Image\Facades\Image::class,
+    'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],
 
 ];

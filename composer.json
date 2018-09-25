@@ -11,7 +11,9 @@
         "intervention/image": "^2.4",
         "laravel/dusk": "^2.0",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "yajra/laravel-datatables-html": "^3.8",
+        "yajra/laravel-datatables-oracle": "^8.8"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
