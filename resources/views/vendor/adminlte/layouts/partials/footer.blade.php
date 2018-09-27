@@ -4,5 +4,5 @@
     <div class="pull-right hidden-xs">
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="#">WestGate IT</a>.</strong> 
+    <strong>Copyright &copy; 2018 <a href="#">Westgate IT</a>.</strong> 
 </footer>
