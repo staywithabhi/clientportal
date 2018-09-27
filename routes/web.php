@@ -32,4 +32,4 @@ Route::group(['middleware' => 'auth'], function () {
 });
 Route::get('profile','UserController@profile');
 Route::post('profile','UserController@update_profile');
-Route::post('uploadImage','ClientController@imageUpload');
+// Route::post('uploadImage','ClientController@imageUpload');
