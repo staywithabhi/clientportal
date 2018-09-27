@@ -44,10 +44,7 @@ class ClientController extends Controller
             //  print_r($request->avatar);
             // exit;
             // Image::make($request->file('avatar'))->orientate()->fit(500)->save($path);
-    		Image::make($avatar)->resize(300, 300,function($constraint)
-{
-    $constraint->aspectRatio();
-})->save($path);
+    		Image::make($avatar)->save($path);
 
 
             // now update the photo column on the student record
