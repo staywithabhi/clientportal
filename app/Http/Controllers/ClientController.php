@@ -11,9 +11,55 @@ use Yajra\DataTables\Datatables;
 use Illuminate\Support\Facades\Input;
 use App\Clients;
 use DB;
+use Hash;
+use Validator;
+use Image;
 
 class ClientController extends Controller
 {
+
+
+	public function imageUpload(Request $request)
+	{
+		// echo "abhishebvcbk";
+		// exit;
+		// $avatar = $request->file('avatar');
+		// $filename = time() . '.' . $avatar->getClientOriginalExtension();
+		// Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+		// return response()->json($request->file('avatar'));
+
+
+		       $data =$request->all();
+
+
+        // do we have an image to process?
+        if($request->hasFile('avatar')){
+        	$avatar =$request->file('avatar');
+
+            //$filename = substr( md5( $student->id . '-' . time() ), 0, 15) . '.' . $request->file('image')->getClientOriginalExtension();
+            $filename = $avatar->getClientOriginalName();
+
+            $path = public_path('/uploads/avatars/' . $filename);
+            //  echo "<pre> Image source is";
+            //  print_r($request->avatar);
+            // exit;
+            // Image::make($request->file('avatar'))->orientate()->fit(500)->save($path);
+    		Image::make($avatar)->resize(300, 300,function($constraint)
+{
+    $constraint->aspectRatio();
+})->save($path);
+
+
+            // now update the photo column on the student record
+            // $student->photo = $filename;
+            // $student->save();
+           $msg="saved successfully"; 
+ 			return response()->json($msg);
+        }
+        $msg="not saved successfully"; 
+ 			return response()->json($msg);
+
+	}
     
 	public function getAll(Request $request)
 	    {

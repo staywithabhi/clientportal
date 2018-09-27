@@ -24,12 +24,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     #adminlte_api_routes
 // });
 
-Route::get('getClients',['middleware'=>'auth:api','uses'=>'ClientController@getAll']);
-Route::post('getAllMembers',['middleware'=>'auth:api','uses'=>'MemberController@getAll']);
-Route::post('getClientDetails',['middleware'=>'auth:api','uses'=>'ClientController@edit']);
-Route::post('updateClientDetails',['middleware'=>'auth:api','uses'=>'ClientController@update']);
-Route::post('saveNewClient',['middleware'=>'auth:api','uses'=>'ClientController@save']);
-Route::post('deleteClient',['middleware'=>'auth:api','uses'=>'ClientController@destroy']);
+// Route::get('getClients',['middleware'=>'auth:api','uses'=>'ClientController@getAll']);
+// Route::post('getAllMembers',['middleware'=>'auth:api','uses'=>'MemberController@getAll']);
+// Route::post('getClientDetails',['middleware'=>'auth:api','uses'=>'ClientController@edit']);
+// Route::post('updateClientDetails',['middleware'=>'auth:api','uses'=>'ClientController@update']);
+// Route::post('saveNewClient',['middleware'=>'auth:api','uses'=>'ClientController@save']);
+Route::post('uploadImage','ClientController@imageUpload');
 
 
 

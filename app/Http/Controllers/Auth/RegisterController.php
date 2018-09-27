@@ -78,13 +78,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $api_token=str_random(60);
         $fields = [
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
-             'client_id' => 1,
-             'api_token'=>$api_token,
         ];
         if (config('auth.providers.users.field','email') === 'username' && isset($data['username'])) {
             $fields['username'] = $data['username'];

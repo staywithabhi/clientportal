@@ -30,3 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
 });
+Route::get('profile','UserController@profile');
+Route::post('profile','UserController@update_profile');
+Route::post('uploadImage','ClientController@imageUpload');

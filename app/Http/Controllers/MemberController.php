@@ -24,16 +24,13 @@ class MemberController extends Controller
  		$client=Clients::find($id);
  		$data['client']=$client;
  		$data['members']=$members;
-
- 		$resp = Datatables::of($members)
-            ->addColumn('action', function($row) {
-                return '<a href="/memberEdit/'. $row->id .'" class="btn btn-primary">Edit</a>
-                <a data-href="/memberDelete/'. $row->id .'" class="btn btn-danger" title="Delete" data-toggle="modal" data-target="#confirm-delete">Delete</a>';
-            })
-            ->make(true);
-		$data     = $resp->getData(true);
+		// $resp = Datatables::of($members)->make(true);
+            echo "<pre>request is :-";
+            print_r($members);
+            exit;
+		$data = $resp->getData(true);
 		// $data['key'] = 'value';
- 		return response()->json($data);
+ 		return response()->json($members);
 		}
 
 }
