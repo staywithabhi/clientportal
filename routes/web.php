@@ -15,7 +15,7 @@ Route::auth();
 
 
 Route::get('/', function () {
-    return view('home');
+    return view('vendor.adminlte.home');
     })->middleware('auth');
 Route::get('profile','UserController@profile');
 Route::post('profile','UserController@update_profile');

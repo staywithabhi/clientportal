@@ -28,12 +28,12 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"> {{$user::get()->count() }}</div>
-                                    <div>Number of Clients</div>
+                                    <div class="huge"> </div>
+                                    <div>Module 1</div>
                                 </div>
                             </div>
                         </div>
-                      <a href="{{ url('/clients') }}">
+                      <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -50,12 +50,12 @@
                                     <i class="fa fa-user-md fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-								<div class="huge"> {{$user::get()->count() }}</div>
-                                    <div>Number of Staff</div>
+								<div class="huge"> </div>
+                                    <div>Module 2</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="{{ url('/staff') }}">
+                        <a href="#">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -72,8 +72,8 @@
                                     <i class="fa fa-line-chart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>Number of Projects!</div>
+                                    <div class="huge"></div>
+                                    <div>Module 4</div>
                                 </div>
                             </div>
                         </div>
@@ -94,8 +94,8 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
+                                    <div class="huge"></div>
+                                    <div>Module 5</div>
                                 </div>
                             </div>
                         </div>

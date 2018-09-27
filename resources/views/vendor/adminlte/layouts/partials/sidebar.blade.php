@@ -34,9 +34,9 @@
             <!-- <li class="header">{{ trans('adminlte_lang::message.header') }}</li> -->
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-            <li><a href="{{ url('/clients') }}"><i class='fa fa-users'></i> <span>Manage Clients</span></a></li>
+            <li><a href="#"><i class='fa fa-users'></i> <span>Access Item 1</span></a></li>
           
-            <li><a href="{{ url('/staff') }}"><i class='fa fa-user-md'></i> <span>Manage Staff</span></a></li>
+            <li><a href="#"><i class='fa fa-user-md'></i> <span>Access Item 2</span></a></li>
          
            <!-- <li><a href="{{ url('/company') }}"><i class='fa fa-user-md'></i> <span>Manage Companies</span></a></li> -->
 
