@@ -10,6 +10,8 @@ use Yajra\DataTables\Html\Builder;
 use Yajra\DataTables\Datatables;
 use Illuminate\Support\Facades\Input;
 use App\Clients;
+use App\User;
+use App\Role;
 use DB;
 use Hash;
 use Validator;
@@ -18,7 +20,25 @@ use Image;
 class ClientController extends Controller
 {
 
-
+	public function assignRoles(Request $request)
+	{
+		$id =$request->input('id');
+		$roles=$request->input('roles');
+        $role_str = implode(",", array_keys($roles));
+		// $role_str=$request->input('role_str');
+		$user=User::find($id);
+		$user->roles=$role_str;
+		$user->save();
+		$user->roles()->detach();
+		
+	    foreach($roles as $key=>$value)
+	    {
+	    	// echo $key;
+	         $user->roles()->attach(Role::where('name', $key)->first());
+	    }
+	    // exit;
+	    return response()->json("success");
+	}
 	public function imageUpload(Request $request)
 	{
 		// echo "abhishebvcbk";

@@ -105,6 +105,8 @@ desired effect
 @section('scripts')
     @include('adminlte::layouts.partials.scripts')
 @show
+<script src="{{ asset('/js/jquery.dataTables.js') }}"></script> 
+<script src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script> 
 <script>
 $(".alert").delay(4000).slideUp(200, function() {
     $(this).alert('close');
