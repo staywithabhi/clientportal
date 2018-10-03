@@ -37,7 +37,7 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"> {{ $user::where('client_id',Auth::user()->client_id)->where('roles','!=','manager')->get()->count() }} </div>
+                                    <div class="huge"> {{ $user::where('client_id',Auth::user()->client_id)->get()->count() }} </div>
                                     <div>Number of Users</div>
                                 </div>
                             </div>
