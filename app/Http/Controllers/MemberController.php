@@ -120,6 +120,12 @@ class MemberController extends Controller
         {
 			$roles=$request->input('roles');
 			$role_str = implode(",", array_keys($roles));
+            if($role_str=='readonly')
+                $role_str='Read Only';
+            if($role_str=='writeonly')
+                $role_str='Write Only';
+            if($role_str=='manager')
+                $role_str='Manager';
 			$member->roles=$role_str;
 		}
 		
