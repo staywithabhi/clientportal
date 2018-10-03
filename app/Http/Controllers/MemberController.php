@@ -36,7 +36,7 @@ class MemberController extends Controller
         {
 			$members=DB::table('users')->select(['id','name','email','roles','avatar'])
 			->where('client_id',$client_id)
-			->Where('roles', '!=', 'manager')
+			// ->Where('roles', '!=', 'manager')
 			->get();
 			return Datatables::of($members)
             ->addColumn('action', function($row) {
@@ -46,7 +46,7 @@ class MemberController extends Controller
             ->make(true);
         }
         $html= $htmlbuilder
-        ->addColumn(['data'=>'id','name'=>'id','title'=>'Id'])
+        // ->addColumn(['data'=>'id','name'=>'id','title'=>'Id'])
         ->addColumn(['data'=>'name','name'=>'name','title'=>'Name'])
         ->addColumn(['data'=>'email','name'=>'email','title'=>'Email'])
         ->addColumn(['data'=>'roles','name'=>'roles','title'=>'Roles'])

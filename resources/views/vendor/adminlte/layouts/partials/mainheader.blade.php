@@ -4,7 +4,9 @@
     <!-- Logo -->
     <a href="{{ url('/home') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>W</b>IT</span>
+        <span class="logo-mini">
+             <img src="{{ asset('/img/logo_small.png') }}">
+        </span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><img src="{{ asset('/img/logo_admin.png') }}"></span>
     </a>

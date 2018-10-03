@@ -15,12 +15,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                    @if($user->hasRole('manager'))
+<!--                     @if($user->hasRole('manager'))
                         Administration Area For "{{ \App\Clients::where('id',Auth::user()->client_id)->first()->title }}"
                     @else
 
                         Manage Modules
-                    @endif
+                    @endif -->
+                     {{ trans('adminlte_lang::message.dashboard') }}
 </h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -52,7 +53,7 @@
                 </div>
                 @else
 
-<div class="col-lg-3 col-md-6">
+<!-- <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <div class="row">
@@ -73,11 +74,11 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
 
 
                 @endif
-                <div class="col-lg-3 col-md-6">
+<!--                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
@@ -98,8 +99,8 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+<!--                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
@@ -120,8 +121,8 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
+                </div> -->
+<!--                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-red">
                         <div class="panel-heading">
                             <div class="row">
@@ -142,7 +143,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>

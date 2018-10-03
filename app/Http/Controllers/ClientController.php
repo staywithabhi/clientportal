@@ -26,6 +26,14 @@ class ClientController extends Controller
 		$roles=$request->input('roles');
         $role_str = implode(",", array_keys($roles));
 		// $role_str=$request->input('role_str');
+		if($role_str=='readonly')
+			$role_str='Read Only';
+		if($role_str=='writeonly')
+			$role_str='Write Only';
+		if($role_str=='manager')
+			$role_str='Manager';
+		// echo $role_str;
+		// exit;
 		$user=User::find($id);
 		$user->roles=$role_str;
 		$user->save();

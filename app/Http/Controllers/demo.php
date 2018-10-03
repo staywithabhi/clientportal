@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('adminlte_lang::message.addmember') }}
+	{{ trans('adminlte_lang::message.AddStaff') }}
 @endsection
 @section('main-content')
 	<div class="container-fluid spark-screen">
@@ -12,7 +12,7 @@
         		<div id="page-wrapper">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Add New Member</h1>
+                            <h1 class="page-header">Add New Staff Member</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -21,10 +21,10 @@
                         <div class="col-md-6 col-md-offset-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                    <b>Client Details</b>
+                                    <b>Staff Details</b>
                                 </div>
                                 <div class="panel-body">
-                                    <form enctype="multipart/form-data" action="{{ route('memberSave')}}" method="POST">
+                                    <form enctype="multipart/form-data" action="/saveStaff" method="POST">
                                         <div class="form-group has-feedback ">
                                         {{ Form::label('name','Name')}}
                                             <input placeholder="Full Name" name="name" value="" autofocus="autofocus" class="form-control" type="text" required>
@@ -37,26 +37,17 @@
                                         </div>
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','Password')}}
-                                            <input id="password-field" placeholder="Enter Password here" name="password" class="form-control" type="password" required>
-                                            <span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>                                        
+                                            <input id="password-field" placeholder="Enter Password here" name="password" class="form-control" type="password" required />
+                                            <span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>                                        </div>	
                                         </div>	
                                         <div class="form-group has-feedback">
-                                        {{ Form::label('name','Roles')}}
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                {{ Form::label('name','Manager')}}
-                                                    <input class="member_role" type="checkbox" name="roles[manager]">
-                                                </div>
-                                                <div class="col-md-4">
-                                                {{ Form::label('name','ReadOnly')}}
-                                                    <input class="member_role" type="checkbox" name="roles[readonly]">
-                                                </div>
-                                                <div class="col-md-4">
-                                                {{ Form::label('name','ReadWrite')}}
-                                                    <input class="member_role" type="checkbox" name="roles[readwrite]">         
-                                                </div>
-                                            </div>
-                                        <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
+                                        {{ Form::label('name','User Type')}}
+                                        <select id="usertype" name ="usertype" class="form-control form-control-lg" required>
+                                            <option value=''>Please Select A Role</option>
+                                            <option value="standard">Standard</option>
+                                            <option value="admin">Administrator</option>
+                                        </select>       
+                                        <span class="glyphicon glyphicon-compressed form-control-feedback"></span>
                                         </div>
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','Avatar Image')}}
@@ -87,9 +78,6 @@
 @endsection
 @section('customscripts')
 <script type="text/javascript">
-	    $('.member_role').on('change', function() {
-		    $('.member_role').not(this).prop('checked', false);  
-		});
         $(".toggle-password").click(function() {
         $(this).toggleClass("fa-eye fa-eye-slash");
             var input = $($(this).attr("toggle"));

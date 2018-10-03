@@ -1,6 +1,6 @@
 @extends('adminlte::layouts.app')
 @section('htmlheader_title')
-	{{ trans('adminlte_lang::message.AddClient') }}
+	{{ trans('adminlte_lang::message.editmember') }}
 @endsection
 @section('main-content')
 	<div class="container-fluid spark-screen">
@@ -41,23 +41,23 @@
                                         </div>
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','Password')}}
-                                            <input placeholder="Please leave empty to use old existing password" name="password" class="form-control" type="password" >
-                                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                                        </div>	
+                                            <input id="password-field" placeholder="Please leave empty to use old existing password" name="password" class="form-control" type="password" >
+                                            <span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span> 
+                                         </div>	
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','Roles')}}
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                {{ Form::label('name','Manager')}}
-                                                    <input class="member_role" type="checkbox" {{ $member->hasRole('manager') ? 'checked' : '' }} name="roles[manager]">
+                                                {{ Form::label('manager','Manager')}}
+                                                    <input id="manager" class="member_role" type="checkbox" {{ $member->hasRole('manager') ? 'checked' : '' }} name="roles[manager]">
                                                 </div>
                                                 <div class="col-md-4">
-                                                {{ Form::label('name','ReadOnly')}}
-                                                    <input class="member_role" type="checkbox" {{ $member->hasRole('readonly') ? 'checked' : '' }} name="roles[readonly]">
+                                                {{ Form::label('readonly','Read Only')}}
+                                                    <input id="readonly" class="member_role" type="checkbox" {{ $member->hasRole('readonly') ? 'checked' : '' }} name="roles[readonly]">
                                                 </div>
                                                 <div class="col-md-4">
-                                                {{ Form::label('name','ReadWrite') }}
-                                                    <input class="member_role" type="checkbox" {{ $member->hasRole('readwrite') ? 'checked' : '' }} name="roles[readwrite]">         
+                                                {{ Form::label('readwrite','Read Write') }}
+                                                    <input id="readwrite" class="member_role" type="checkbox" {{ $member->hasRole('readwrite') ? 'checked' : '' }} name="roles[readwrite]">         
                                                 </div>
                                             </div>
                                         <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
@@ -69,13 +69,13 @@
                                                 
                                                   
                                                         {{ Form::label('name','Avatar Image')}}
-                                                        {{ Form::file('avatar',null,array('class'=>'form-control image'))}}
+                                                    <input placeholder="Upload Profile Avatar" name="avatar" class="form-control" type="file" >
                                                     <span class="glyphicon glyphicon-camera form-control-feedback"></span>
                                                
                                         </div>	
 
                                         
-                                    {{Form::submit('Update',array('class'=>'btn btn-primary'))}}
+                                    {{Form::submit('Save',array('class'=>'pull-right btn btn-primary'))}}
                                     {{ Form::close()}}
             </div>
 
@@ -97,5 +97,17 @@
 	    $('.member_role').on('change', function() {
 		    $('.member_role').not(this).prop('checked', false);  
 		});
+                $(".toggle-password").click(function() {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                // alert("hello");
+                input.attr("type", "text");
+            } else
+            {
+                // alert("hello2");
+                input.attr("type", "password");
+            }
+        });
     </script>
 @endsection
