@@ -107,9 +107,6 @@ class ClientController extends Controller
 	    }
     	public function update(Request $request)
 	    {
-
-
-
 			$id=$request->input('id');
 			if($id){
 
@@ -117,16 +114,13 @@ class ClientController extends Controller
 				$client->title=$request->input('title');
 	            $client->email=$request->input('email');
 	            $client->save();
-
 	            $flag=1;
-	            
 			}
 			else
 			{
 				 $flag=0;
 			}
 			return response()->json($flag);
-
 	    }
 	    public function save(Request $request)
 	    {
@@ -138,7 +132,7 @@ class ClientController extends Controller
 		            $client->save();
 		            $flag=1;
 				}
-				  catch(\Illuminate\Database\QueryException $e){
+				catch(\Illuminate\Database\QueryException $e){
 				        $errorCode = $e->errorInfo[1];
 				       // print_r($e->errorInfo);
 				       // exit;

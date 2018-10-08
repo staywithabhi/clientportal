@@ -38,7 +38,7 @@
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','Password')}}
                                             <input id="password-field" placeholder="Enter Password here" name="password" class="form-control" type="password" required />
-                                            <span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>                                        </div>	
+                                            <span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>
                                         </div>	
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','User Type')}}

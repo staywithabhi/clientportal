@@ -11,7 +11,9 @@
     <div id="app">
         <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/home') }}">
+                <img src="{{ asset('/img/logo.png') }}">
+            </a>
         </div><!-- /.login-logo -->
 
         @if (session('status'))
@@ -36,8 +38,8 @@
 
             <reset-password-form token="{{ $token }}">></reset-password-form>
 
-            <a href="{{ url('/login') }}">Log in</a><br>
-            <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.membership') }}</a>
+            <a href="{{ url('/login') }}">Log hgfhin</a><br>
+            <!-- <a href="{{-- url('/register') --}}" class="text-center">{{-- trans('adminlte_lang::message.membership') --}}</a> -->
 
         </div><!-- /.login-box-body -->
 

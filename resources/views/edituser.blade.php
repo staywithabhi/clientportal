@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','Password')}}
-                                            <input placeholder="Please leave empty to use old existing password" name="password" class="form-control" type="password" >
+                                            <input minlength="12" placeholder="Please leave empty to use old existing password" name="password" class="form-control" type="password" >
                                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                                         </div>	
                                         <div class="form-group has-feedback">

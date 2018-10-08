@@ -41,8 +41,8 @@
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div> -->
 				<div class="form-group has-feedback">
-					<input placeholder="Enter New Password Or Leave Blank To Use Existing" name="password" class="form-control" type="password">
-					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+					<input minlength="12" id="password-field" placeholder="Enter New Password Or Leave Blank To Use Existing" name="password" class="form-control" type="password">
+					<span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>
 				</div>	
 				<div class="form-group has-feedback">
 					<input placeholder="Upload Profile Avatar" name="avatar" class="form-control" type="file">
@@ -52,7 +52,7 @@
 				                <!-- <label>Update Profile Image</label>
                 <input type="file" name="avatar">	 -->
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="submit" class="pull-right btn btn-sm btn-primary">
+                <input type="submit" value="Save" class="pull-right btn btn-md btn-primary">
 			
             	</form>
 			</div>
@@ -66,4 +66,20 @@
 		</div>
 	</div>
 	
+@endsection
+@section('customscripts')
+<script type="text/javascript">
+        $(".toggle-password").click(function() {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                // alert("hello");
+                input.attr("type", "text");
+            } else
+            {
+                // alert("hello2");
+                input.attr("type", "password");
+            }
+        });
+    </script>
 @endsection

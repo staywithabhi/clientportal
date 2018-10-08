@@ -38,9 +38,13 @@
                             <!-- The user image in the menu -->
                             <li class="user-header">
                                 <img src="/uploads/avatars/{{ $user->avatar }}" class="img-circle" alt="User Image" />
-                                <p>
+                              <p>
                                     {{ Auth::user()->name }}
-                                    <small>{{ trans('adminlte_lang::message.login') }} {{ date('d-m-y H:i:s') }}</small>
+                                   <small> Company :- {{ \App\Clients::where('id',Auth::user()->client_id)->first()->title }} </small>
+                                     <small>Email:-  {{ Auth::user()->email }}</small>
+                                    <small>{{ trans('adminlte_lang::message.login') }} :-
+                                    {{ date('d-m-y H:i:s', strtotime(Auth::user()->last_login_at)) }}
+                                    </small>
                                 </p>
                             </li>
                             <li class="user-footer">
