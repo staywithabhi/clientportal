@@ -13,7 +13,9 @@ class AddStatusColumnToClientTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('clients', function (Blueprint $table) {
+            $table->boolean('active')->default(false);
+        });
     }
 
     /**
@@ -23,6 +25,7 @@ class AddStatusColumnToClientTable extends Migration
      */
     public function down()
     {
-        //
-    }
+         Schema::table('clients', function($table) {
+            $table->dropColumn('active');
+        });    }
 }
