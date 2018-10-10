@@ -41,13 +41,22 @@
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div> -->
 				<div class="form-group has-feedback">
-					<input minlength="12" id="password-field" placeholder="Enter New Password Or Leave Blank To Use Existing" name="password" class="form-control" type="password">
-					<span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>
-				</div>	
+					<input id="password-field"  minlength="12" placeholder="Enter New Password Or Leave Blank To Use Existing" name="new_password" class="form-control" type="password">
+						<span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>
+				</div>
+				<div class="form-group has-feedback">
+					<input id="password-field1"  minlength="12" placeholder="Enter New Password To Confirm" name="new_password_confirmation" class="form-control" type="password">
+						<span title="Show Password" toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password "></span>
+				</div>		
 				<div class="form-group has-feedback">
 					<input placeholder="Upload Profile Avatar" name="avatar" class="form-control" type="file">
 					<span class="glyphicon glyphicon-camera form-control-feedback"></span>
 				</div>	
+				<div class="form-group has-feedback">
+					<input id="password-field2"  minlength="5" placeholder="Enter Current Password" name="password" class="form-control" type="password" required>
+						<span title="Show Password" toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password "></span>
+				</div>	
+
 
 				                <!-- <label>Update Profile Image</label>
                 <input type="file" name="avatar">	 -->

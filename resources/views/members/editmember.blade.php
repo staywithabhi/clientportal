@@ -1,4 +1,7 @@
 @extends('adminlte::layouts.app')
+@section('members')
+{!! 'class="active"' !!}
+@stop
 @section('htmlheader_title')
 	{{ trans('adminlte_lang::message.editmember') }}
 @endsection

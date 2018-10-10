@@ -49,7 +49,7 @@
                 padding: 20px;
             }
         </style>
-        <title>403! Forbidden Access</title>
+        <title>401! Unauthorised access</title>
 </head>
 <body>
         <div class="flex-center position-ref full-height">
@@ -60,19 +60,19 @@
                 </a>
             </div>
                 <div class="title">
-        <h1>Oops! 403</h1>
+        <h1>Oops! 401</h1>
  
-        <h1>Access Forbidden Restricted Area</h1>
+        <h1> Sorry, Unauthorised access to the document or program that you requested  .</h1>
                 </div>
     <p>If this continues to happen please contact Westgate IT. </p>
-		<!-- <div class="error-heading">403</div> -->
+        <!-- <div class="error-heading">403</div> -->
         <!-- <p>You do not have permission to access the document or program that you requested.</p> -->
 
 
         <a href="{{ url('/home') }}" class="btn btn-primary btn-add-new" style="border: 1px solid;">Home</a>
-<!--         <a href="{{ url('/logout') }}" class="btn btn-primary btn-add-new" style="border: 1px solid;">Logout</a> -->
+     <!--    <a href="{{ url('/logout') }}" class="btn btn-primary btn-add-new" style="border: 1px solid;">Logout</a> -->
 
-	</div>
+    </div>
 </div>
 </body>
 </html>
