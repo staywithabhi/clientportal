@@ -34,7 +34,7 @@ class MemberController extends Controller
 
 		if($request->ajax())
         {
-			$members=DB::table('users')->select(['id','name','email','roles','avatar'])
+			$members=DB::table('users')->select(['id','name','email','usertype','avatar'])
 			->where('client_id',$client_id)
 			// ->Where('roles', '!=', 'manager')
 			->get();
@@ -49,7 +49,7 @@ class MemberController extends Controller
         // ->addColumn(['data'=>'id','name'=>'id','title'=>'Id'])
         ->addColumn(['data'=>'name','name'=>'name','title'=>'Name'])
         ->addColumn(['data'=>'email','name'=>'email','title'=>'Email'])
-        ->addColumn(['data'=>'roles','name'=>'roles','title'=>'Roles'])
+        ->addColumn(['data'=>'usertype','name'=>'usertype','title'=>'User Type'])
         ->addColumn([
             // 'defaultContent' => '',
             'data'=>'avatar',
@@ -116,19 +116,11 @@ class MemberController extends Controller
             $remember_token = $request->input('remember_token');
             $member->remember_token= $remember_token;
 		}
-		if($request->input('roles'))
+        if($request->input('usertype'))
         {
-			$roles=$request->input('roles');
-			$role_str = implode(",", array_keys($roles));
-            if($role_str=='readonly')
-                $role_str='Read Only';
-            if($role_str=='writeonly')
-                $role_str='Write Only';
-            if($role_str=='manager')
-                $role_str='Manager';
-			$member->roles=$role_str;
-		}
-		
+            $usertype = $request->input('usertype');
+            $member->usertype= $usertype;
+        }
 
 
         if($request->hasFile('avatar')){
@@ -146,16 +138,19 @@ class MemberController extends Controller
         
         $member->save();
         $mem_id=$member->id;
-        if(!empty($roles))
+        // $id =$request->input('id');
+        $roles=$request->input('roles');
+        $user=User::find($mem_id);
+         // $roles=$request->input('roles');
+      if(count($roles)>0)
         {
-			$user=User::find($mem_id);
-			$user->roles()->detach();
-			foreach($roles as $key=>$value)
-			{
-				// echo $key;
-				 $user->roles()->attach(Role::where('name', $key)->first());
-			}
-
+            $user->roles()->detach();
+        
+            foreach($roles as $key=>$value)
+            {
+                // echo $key;
+                 $user->roles()->attach(Role::where('name', $key)->first());
+            }
         }
         $request->session()->flash('alert-success', 'Member was added successfully!');
 
@@ -224,12 +219,11 @@ class MemberController extends Controller
                 $member->password= $hashed;
                 // $user->password=Input::get('email')
 			}
-			if($request->input('roles'))
-			{
-				$roles=$request->input('roles');
-				$role_str = implode(",", array_keys($roles));
-				$member->roles=$role_str;
-			}
+        if($request->input('usertype'))
+        {
+            $usertype = $request->input('usertype');
+            $member->usertype= $usertype;
+        }
              if($request->hasFile('avatar')){
                 $avatar = $request->file('avatar');
                 $filename = time() . '.' . $avatar->getClientOriginalExtension();
@@ -241,16 +235,18 @@ class MemberController extends Controller
 
             $member->save();
             // $mem_id=$member->id;
-        if(!empty($roles))
+        $roles=$request->input('roles');
+        // $user=User::find($mem_id);
+         // $roles=$request->input('roles');
+      if(count($roles)>0)
         {
-			// $user=User::find($mem_id);
-			$member->roles()->detach();
-			foreach($roles as $key=>$value)
-			{
-				// echo $key;
-				 $member->roles()->attach(Role::where('name', $key)->first());
-			}
-
+            $member->roles()->detach();
+        
+            foreach($roles as $key=>$value)
+            {
+                // echo $key;
+                 $member->roles()->attach(Role::where('name', $key)->first());
+            }
         }
 
             

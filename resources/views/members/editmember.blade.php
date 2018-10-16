@@ -47,23 +47,31 @@
                                             <input minlength="12" id="password-field" placeholder="Please leave empty to use old existing password" name="password" class="form-control" type="password" >
                                             <span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span> 
                                          </div>	
-                                        <div class="form-group has-feedback">
-                                        {{ Form::label('name','Roles')}}
+            
+                                    <div class="form-group required has-feedback">
+                                        {{ Form::label('name','User Type')}}
+                                        <select id="usertype" name ="usertype" class="form-control form-control-lg" required>
+                                            <option value=''>Please Select A Role</option>
+                                            <option <?php if ($member->usertype=='manager'){ echo "selected='selected'"; } ?> value="manager">Manager</option>
+                                            <option <?php if ($member->usertype=='custom'){ echo "selected='selected'"; } ?> value="custom">Custom</option>
+                                        </select>       
+                                        <span class="glyphicon glyphicon-compressed form-control-feedback"></span>
+                                        </div>
+
+                                        <div class="form-group  has-feedback user-module-roles" style="display:none">
                                             <div class="row">
-                                                <div class="col-md-4">
-                                                {{ Form::label('manager','Manager')}}
-                                                    <input id="manager" class="member_role" type="checkbox" {{ $member->hasRole('manager') ? 'checked' : '' }} name="roles[manager]">
+                                                <div class="col-md-4 text-right">
+                                                {{ Form::label('name','Manage Clients :')}}
                                                 </div>
-                                                <div class="col-md-4">
-                                                {{ Form::label('readonly','Read Only')}}
-                                                    <input id="readonly" class="member_role" type="checkbox" {{ $member->hasRole('readonly') ? 'checked' : '' }} name="roles[readonly]">
+                                                <div class="col-md-4 text-center">
+                                                    <input class="client_role" {{ $member->hasRole('readonly') ? 'checked' : '' }}  type="checkbox" id="clientR" name="roles[readonly]">
+                                                    {{ Form::label('clientR','Read Only')}}
                                                 </div>
-                                                <div class="col-md-4">
-                                                {{ Form::label('readwrite','Read Write') }}
-                                                    <input id="readwrite" class="member_role" type="checkbox" {{ $member->hasRole('readwrite') ? 'checked' : '' }} name="roles[readwrite]">         
+                                                <div class="col-md-4 text-center">
+                                                        <input class="client_role" {{ $member->hasRole('readwrite') ? 'checked' : '' }} type="checkbox" id="clientRW" name="roles[readwrite]">
+                                                    {{ Form::label('clientRW','Read & Write')}}
                                                 </div>
                                             </div>
-                                        <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
                                         </div>
 
                                         <!-- <input type="hidden" name="client_id" value=""> -->
@@ -77,7 +85,8 @@
                                                
                                         </div>	
 
-                                        
+                            <input class="admin-role hidden" {{ $member->hasRole('manager') ? 'checked' : '' }} type="checkbox" id="adminbox" name="roles[manager]">
+
                                     {{Form::submit('Save',array('class'=>'pull-right btn btn-primary'))}}
                                     {{ Form::close()}}
             </div>
@@ -97,9 +106,12 @@
 @endsection
 @section('customscripts')
 <script type="text/javascript">
-	    $('.member_role').on('change', function() {
-		    $('.member_role').not(this).prop('checked', false);  
-		});
+    if($("#usertype").prop('selectedIndex')==2){
+        $('.user-module-roles').show();
+    }
+        $('.client_role').on('change', function() {
+            $('.client_role').not(this).prop('checked', false);  
+        });
                 $(".toggle-password").click(function() {
         $(this).toggleClass("fa-eye fa-eye-slash");
             var input = $($(this).attr("toggle"));
@@ -112,5 +124,25 @@
                 input.attr("type", "password");
             }
         });
+                        $(function() {
+            $('#usertype').change(function(){
+                // alert($(this).val());
+                if($(this).val()==='custom')
+                {
+               $('.user-module-roles').show();
+               $("#adminbox").prop('checked', false); 
+            //    $(".user-module-roles input").attr("required","required");
+                }
+                else{
+                    
+                    $("#clientR").prop('checked', false); 
+                    $("#clientRW").prop('checked', false); 
+                    $('.user-module-roles').hide();
+                    $("#adminbox").prop('checked', true);  
+                    // $(".user-module-roles input").removeAttr("required");
+                }
+                // $('#' + $(this).val()).show();
+            });
+            });
     </script>
 @endsection
