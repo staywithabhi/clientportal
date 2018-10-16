@@ -24,27 +24,19 @@ class ClientController extends Controller
 	{
 		$id =$request->input('id');
 		$roles=$request->input('roles');
-        $role_str = implode(",", array_keys($roles));
-		// $role_str=$request->input('role_str');
-		if($role_str=='readonly')
-			$role_str='Read Only';
-		if($role_str=='writeonly')
-			$role_str='Write Only';
-		if($role_str=='manager')
-			$role_str='Manager';
-		// echo $role_str;
-		// exit;
 		$user=User::find($id);
-		$user->roles=$role_str;
-		$user->save();
-		$user->roles()->detach();
+		 // $roles=$request->input('roles');
+      if(count($roles)>0)
+        {
+            $user->roles()->detach();
 		
-	    foreach($roles as $key=>$value)
-	    {
-	    	// echo $key;
-	         $user->roles()->attach(Role::where('name', $key)->first());
-	    }
-	    // exit;
+            foreach($roles as $key=>$value)
+            {
+                // echo $key;
+                 $user->roles()->attach(Role::where('name', $key)->first());
+            }
+        }
+
 	    return response()->json("success");
 	}
 	public function imageUpload(Request $request)
