@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Session;
 use App\Clients;
 
 class LoginController extends Controller
@@ -94,7 +95,7 @@ class LoginController extends Controller
     /*Code added by developer Abhishek to check active status*/
     public function authenticated(Request $request, $user)
     {
-
+    Session::put('lastLogin', $user->last_login_at);
     $user->update([
         'last_login_at' => Carbon::now()->toDateTimeString(),
         'last_login_ip' => $request->getClientIp()

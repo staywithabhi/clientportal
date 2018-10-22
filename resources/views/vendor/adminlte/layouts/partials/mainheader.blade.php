@@ -43,8 +43,10 @@
                                    <small> {{ \App\Clients::where('id',Auth::user()->client_id)->first()->title }} </small>
                                      <small> {{ Auth::user()->email }}</small>
                                     <small>{{ trans('adminlte_lang::message.login') }} :-
-                                    {{ date('d-m-y H:i:s', strtotime(Auth::user()->last_login_at)) }}
-                                    </small>
+                                    @if(Session::has('lastLogin'))
+                                        {{ Session::get('lastLogin') }}
+                                      @endif                                    
+                                  </small>
                                 </p>
                             </li>
                             <li class="user-footer">
