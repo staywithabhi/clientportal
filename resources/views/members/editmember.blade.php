@@ -61,7 +61,7 @@
                                         <div class="form-group  has-feedback user-module-roles" style="display:none">
                                             <div class="row">
                                                 <div class="col-md-4 text-right">
-                                                {{ Form::label('name','Manage Clients :')}}
+                                                {{ Form::label('name','Manage Members :')}}
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                     <input class="client_role" {{ $member->hasRole('readonly') ? 'checked' : '' }}  type="checkbox" id="clientR" name="roles[readonly]">

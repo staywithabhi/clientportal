@@ -10,6 +10,17 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+.form-group.required label:after {
+  content:"*";
+  color:red;
+  margin-left: 5px;
+}
+#usertype,#status {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

@@ -53,7 +53,7 @@
                         </a>
                     </div>
                 </div>
-                @else
+               @endif
 
 <!-- <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
@@ -79,7 +79,7 @@
                 </div> -->
 
 
-                @endif
+               
 <!--                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">

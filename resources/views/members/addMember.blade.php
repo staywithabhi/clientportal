@@ -56,7 +56,7 @@
                                         <div class="form-group  has-feedback user-module-roles" style="display:none">
                                             <div class="row">
                                                 <div class="col-md-4 text-right">
-                                                {{ Form::label('name','Manage Clients :')}}
+                                                {{ Form::label('name','Manage Members :')}}
                                                 </div>
                                                 <div class="col-md-4 text-center">
                                                     <input class="client_role" type="checkbox" id="clientR" name="roles[readonly]">
@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="form-group has-feedback">
                                         {{ Form::label('name','Avatar Image')}}
-                                            <input placeholder="Upload Profile Avatar" name="avatar" class="form-control" type="file" required>
+                                            <input placeholder="Upload Profile Avatar" name="avatar" class="form-control" type="file">
                                             <span class="glyphicon glyphicon-camera form-control-feedback"></span>
                                         </div>	
 
