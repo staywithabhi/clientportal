@@ -34,7 +34,7 @@
             <!-- <li class="header">{{ trans('adminlte_lang::message.header') }}</li> -->
             <!-- Optionally, you can add icons to the links -->
             <li @yield('home')><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.dashboard') }}</span></a></li>
-            @if($user->hasRole('manager'))
+            @if($user->hasRole('manager')|| $user->hasRole('readonly') || $user->hasRole('readwrite') )
             <li @yield('members')><a href="{{ route('manageMembers') }}"><i class='fa fa-user-md'></i> <span>Manage Members</span></a></li>
            @endif 
 <!--             <li><a href="#"><i class='fa fa-users'></i> <span>Access Item 1</span></a></li>

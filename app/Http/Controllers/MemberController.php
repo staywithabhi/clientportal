@@ -61,8 +61,13 @@ class MemberController extends Controller
             'exportable'     => false,
             'printable'      => true,
             'footer'         => '',
-            ])
-        ->addColumn([
+            ]);
+
+
+      if(Auth::user()->hasRole('manager') || Auth::user()->hasRole('readwrite'))
+        {
+            $html=$html
+            ->addColumn([
             'defaultContent' => '',
             'data'           => 'action',
             'name'           => 'delete',
@@ -73,7 +78,8 @@ class MemberController extends Controller
             'exportable'     => false,
             'printable'      => true,
             'footer'         => '',
-        ]);
+            ]);
+        }
         return view('members.memberslist')->with(compact('html','clienttitle'));
     
 

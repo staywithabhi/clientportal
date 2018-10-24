@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+
 use Auth;
 use Hash;
 use Image;
+use Validator;
 class UserController extends Controller
 {
     //
@@ -24,12 +27,16 @@ class UserController extends Controller
         $user = Auth::user();
         if($request->input('new_password')){
         $rules=array(
-            'password' => 'required|min:12',
+            'password' => 'required',
             'new_password' => 'min:12',
             'new_password_confirmation' => 'required_with:new_password|same:new_password',
             );
             $validator=Validator::make(Input::all(),$rules);
+            if($validator->fails()){
+            return redirect('profile')->withErrors($validator)->withInput();
         }
+        }
+
         $this->validate($request, ['name'=>'required']);
         if (Hash::check($request->password, $user->password)) 
         { 

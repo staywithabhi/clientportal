@@ -108,7 +108,7 @@ desired effect
 <script src="{{ asset('/js/jquery.dataTables.js') }}"></script> 
 <script src="{{ asset('/js/dataTables.bootstrap.min.js') }}"></script> 
 <script>
-$(".alert").delay(4000).slideUp(200, function() {
+$(".alert").delay(15000).slideUp(200, function() {
     $(this).alert('close');
 });
 $('#confirm-delete').on('show.bs.modal', function(e) {

@@ -61,7 +61,7 @@
 				                <!-- <label>Update Profile Image</label>
                 <input type="file" name="avatar">	 -->
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="submit" value="Save" class="pull-right btn btn-md btn-primary">
+                <input type="submit" id="submit" value="Save" class="pull-right btn btn-md btn-primary">
 			
             	</form>
 			</div>
@@ -90,5 +90,26 @@
                 input.attr("type", "password");
             }
         });
+	$('#submit').click(function(e){
+			if($("#password-field").val().length > 0){
+				$("#password-field1").prop('required', true);
+					if ($("#password-field").val() != $("#password-field1").val()) {
+						// alert("12");
+			            $("#password-field1")[0].setCustomValidity('Password Must be Matching.');
+			        } else {
+			        	// alert("15");
+			            // input is valid -- reset the error message
+		           		 $("#password-field1")[0].setCustomValidity('');
+
+			        }
+
+
+			}
+			else{
+				$("#password-field1").prop('required', false);
+
+			}
+			
+		});
     </script>
 @endsection

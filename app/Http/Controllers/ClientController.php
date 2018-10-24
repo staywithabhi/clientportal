@@ -26,9 +26,10 @@ class ClientController extends Controller
 		$roles=$request->input('roles');
 		$user=User::find($id);
 		 // $roles=$request->input('roles');
-      if(count($roles)>0)
+		  $user->roles()->detach();
+      if(!empty($roles))
         {
-            $user->roles()->detach();
+            // $user->roles()->detach();
 		
             foreach($roles as $key=>$value)
             {
