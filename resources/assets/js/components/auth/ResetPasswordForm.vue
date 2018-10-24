@@ -11,15 +11,15 @@
   </div>
 
   <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('password') }">
-   <input type="password" class="form-control" :placeholder="trans('adminlte_lang_message.password')" name="password" v-model="form.password"/>
+   <input type="password" minlength="12" class="form-control" :placeholder="trans('adminlte_lang_message.password')" name="password" v-model="form.password"/>
    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
    <transition name="fade">
     <span class="help-block" v-if="form.errors.has('password')" v-text="form.errors.get('password')"></span>
    </transition>
   </div>
-
+ 
   <div class="form-group has-feedback">
-   <input type="password" class="form-control" :placeholder="trans('adminlte_lang_message.retypepassword')" name="password_confirmation" v-model="form.password_confirmation"/>
+   <input type="password" minlength="12" class="form-control" :placeholder="trans('adminlte_lang_message.retypepassword')" name="password_confirmation" v-model="form.password_confirmation"/>
    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
   </div>
 
