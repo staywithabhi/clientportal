@@ -42,7 +42,7 @@
                                     {{ Auth::user()->name }}
                                    <small> {{ \App\Clients::where('id',Auth::user()->client_id)->first()->title }} </small>
                                      <small> {{ Auth::user()->email }}</small>
-                                    <small>{{ trans('adminlte_lang::message.login') }} :-
+                                    <small>{{ trans('adminlte_lang::message.lastlogin') }} :-
                                     @if(Session::has('lastLogin'))
                                         {{ Session::get('lastLogin') }}
                                       @endif                                    
