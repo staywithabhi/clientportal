@@ -42,6 +42,11 @@
                                             <input minlength="12" id="password-field" placeholder="Enter Password here" name="password" class="form-control" type="password" required>
                                             <span title="Show Password" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password "></span>                                        
                                         </div>	
+                                         <div class="form-group required has-feedback">
+                                        {{ Form::label('name','Confirm Password')}}
+                                            <input minlength="12" id="password-field1" placeholder="Confirm Password here" name="confirm-password" class="form-control" type="password" required>
+                                            <span title="Show Password" toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password "></span>                                        
+                                        </div>                                         
    
                                            <div class="form-group required has-feedback">
                                         {{ Form::label('name','User Type')}}
@@ -79,7 +84,7 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input class="admin-role hidden" type="checkbox" id="adminbox" name="roles[manager]">
 
-                                        <input type="submit" value="Save" class="pull-right btn btn-md btn-primary">
+                                        <input type="submit" id="submit" value="Save" class="pull-right btn btn-md btn-primary">
                                     
                                     </form>
             </div>
@@ -134,5 +139,26 @@
                 // $('#' + $(this).val()).show();
             });
             });
+                    $('#submit').click(function(e){
+            if($("#password-field").val().length > 0){
+                $("#password-field1").prop('required', true);
+                    if ($("#password-field").val() != $("#password-field1").val()) {
+                        // alert("12");
+                        $("#password-field1")[0].setCustomValidity('Password Must be Matching.');
+                    } else {
+                        // alert("15");
+                        // input is valid -- reset the error message
+                         $("#password-field1")[0].setCustomValidity('');
+
+                    }
+
+
+            }
+            else{
+                $("#password-field1").prop('required', false);
+
+            }
+            
+        });
     </script>
 @endsection
